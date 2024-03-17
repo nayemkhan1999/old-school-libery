@@ -1,9 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>old-school-libery</title>
+    <!-- Daisy UI and Tailwind CSS Connected link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body class="font-mulish">
+    <!-- Nav-Bar Section -->
+    <nav class="mx-4 lg:mx-28 mt-8">
+      <div class="navbar bg-base-100 flex justify-between items-center">
+        <div class="navbar-start">
+          <h1 class="text-[#12132D] text-2xl lg:text-4xl font-black">
+            old-school
+          </h1>
+        </div>
+        <div class="gap-5 hidden lg:flex">
+          <!-- Number 01 -->
+          <div>
+            <button id="tooltip-btn">
+              <img src="images/Frame 2.png" alt="" />
+            </button>
+
+            <div
+              id="tooltip"
+              class="text-sm bg-gray-700 text-gray-100 px-2 absolute mt-[-85px] rounded shadow-xl hidden"
+            >
+              Home
+            </div>
+          </div>
+          <!-- Number 02 -->
+          <div>
+            <button id="tooltip-btn2">
+              <img src="images/Frame 3.png" alt="" />
+            </button>
+            <div
+              id="tooltip2"
+              class="text-sm bg-gray-700 text-gray-100 px-2 mt-[-85px] ml-2 absolute rounded shadow-xl hidden"
+            >
+              Edit
+            </div>
+          </div>
+          <!-- Number 03 -->
+          <div>
+            <button id="tooltip-btn3">
+              <img src="images/Frame 4.png" alt="" />
+            </button>
+            <div
+              id="tooltip3"
+              class="text-sm bg-gray-700 text-gray-100 px-2 mt-[-85px] absolute rounded shadow-xl hidden"
+            >
+              Friend
+            </div>
+          </div>
+          <!-- Number 04 -->
+          <div>
+            <button id="tooltip-btn4">
+              <img src="images/Frame 5.png" alt="" />
+            </button>
+            <div
+              id="tooltip4"
+              class="text-sm bg-gray-700 text-gray-100 px-2 mt-[-85px] ml-2 absolute rounded shadow-xl hidden"
+            >
+              Flag
+            </div>
+          </div>
+        </div>
+        <div>
+          <button
+            class="btn rounded-full bg-[#797DFC] text-lg font-bold text-white px-5 py-2 lg:w-32"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </nav>
+    <header class="mx-4 lg:mx-28 mt-8">
+      <div
+        class="w-full h-28 lg:h-[75vh] bg-no-repeat bg-cover bg-center rounded-2xl bg-[#12132D]"
+        style="background-image: url(images/bgbanner.png)"
+      >
+        <div class="flex justify-around gap-2 lg:gap-10">
+          <div>
+            <h1
+              class="text-[#FFFFFF] lg:text-6xl lg:font-black lg:text-left text-center mb-4 mt-2 lg:mt-24"
+            >
+              Welcome to the <br />
+              <span class="text-[#797DFC]">Old </span>School
+            </h1>
+            <p
+              class="text-white opacity-70 lg:mt-8 lg:text-base text-left hidden lg:block"
+            >
+              I always find it interesting to see which articles resonated most
+              <br />
+              with you all and the you are the win
+            </p>
+            <label
+              class="input input-bordered flex items-center gap-2 rounded-full lg:mt-8 lg:h-16 h-8 w-64 lg:w-full"
+            >
+              <input
+                id="input-text"
+                type="text"
+                class="grow"
+                placeholder="Search hare any thing"
+              />
+              <button
+                id="search-btn"
+                onclick="myFunctionThree()"
+                class="lg:btn badge badge-info lg:rounded-full bg-[#797DFC] lg:text-lg text-xs font-bold text-white lg:px-5 px-2 lg:py-2 lg:w-32 w-12 lg:h-12 h-6"
+              >
+                Search
+              </button>
+            </label>
+          </div>
+          <div
+            class="bg-white rounded-2xl w-16 lg:w-[371px] lg:h-[260px] lg:mt-28 lg:p-16 text-sm lg:text-xl lg:font-medium hidden lg:block"
+          >
+            <h1 class="flex justify-between">
+              Registered Users <span>01</span>
+            </h1>
+            <h1 class="flex justify-between">Forum <span>05</span></h1>
+            <h1 class="flex justify-between">Topics <span>01</span></h1>
+            <h1 class="flex justify-between">Replies <span>01</span></h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Let’s Discuss Section -->
+      <section class="mx-4 lg:mx-28 mt-8 lg:mt-16">
+        <h1 class="text-4xl font-black text-black text-center">
+          Let’s Discuss
+        </h1>
+        <p class="lg:text-lg text-sm text-center mt-5 opacity-70">
+          recent developments show that definite articles are morphological
+          elements linked to <br />
+          certain noun types due to lexicalization. <br />
+        </p>
+        <!-- Loading spinner set -->
+        <div id="loading-spinner" class="hidden text-center mt-32">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <div class="lg:flex grid grid-cols-1 justify-between mt-10">
+          <!-- Card Demo and Card Id  -->
+          <div id="card-container" class="grid grid-cols-1 gap-5"></div>
+          <!-- Title Section -->
+          <section class="bg-slate-100 w-[300px] h-auto">
+            <div class="flex justify-between items-center p-4">
+              <h1>Title</h1>
+              <div class="flex">
+                <img src="images/5.png" alt="" />
+                <span>Mark as read (<span id="four">0</span>)</span>
+              </div>
+            </div>
+
+            <!-- Default Div Need js file -->
+            <div id="show-cardDetails"></div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Join Our Forum Section -->
+      <section class="mx-4 lg:mx-28 mt-16">
+        <div
+          class="w-full h-28 lg:h-[58vh] bg-no-repeat bg-cover bg-center rounded-3xl bg-[#12132D]"
+        >
+          <div class="flex justify-around items-center">
+            <div class="">
+              <h1 class="text-xl lg:text-4xl font-black text-white">
+                Join Our Forum
+              </h1>
+              <p class="text-white opacity-70 text-base mt-8 hidden lg:block">
+                Share your favorite opinion and win and wp forum coffee mug!
+                Yes, you can <br />
+                run unit tests and view the results directly within the app.
+              </p>
+              <button
+                class="btn rounded-full bg-[#797DFC] text-xs lg:text-lg border-none font-bold text-white px-5 py-2 lg:mt-8 mt-4"
+              >
+                Registered Now
+              </button>
+            </div>
+            <div class="border-2 border-dashed lg:mt-10 mt-5">
+              <img
+                class="w-20 h-20 lg:w-[388px] lg:h-[341px]"
+                src="images/joinforum.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest Posts Section and Card Section -->
+      <section class="mx-4 lg:mx-28 mt-24">
+        <h1 class="text-4xl font-black text-black text-center">Latest Posts</h1>
+        <p class="text-sm lg:text-lg text-center mt-5 opacity-70">
+          The definite article is sometimes also used with proper names, which
+          are <br />
+          already specified by definition (there is just one of them)
+        </p>
+
+        <!--Default Card Section Starts Hare 
+        =====================================-->
+        <div
+          id="card-details"
+          class="grid grid-cols-1 lg:grid-cols-3 lg:gap-16 gap-5 lg:mt-16 mt-4"
+        ></div>
+      </section>
+    </main>
+    <footer
+      class="footer footer-center p-10 bg-gray-200 text-primary-content mt-24"
+    >
+      <h1 class="text-4xl font-black text-black">ReTro</h1>
+      <p class="text-base font-normal text-black opacity-70">
+        An article of clothing was found near the river. Guests are advised not
+        to leave any articles of value <br />
+        in their hotel rooms. articles of furniture typically contains
+        information <br />
+      </p>
+      <div>
+        <ul class="flex items-center gap-8">
+          <li><img src="images/101.png" alt="" /></li>
+          <li><img src="images/102.png" alt="" /></li>
+          <li><img src="images/103.png" alt="" /></li>
+          <li><img src="images/104.png" alt="" /></li>
+        </ul>
+      </div>
+      <p class="text-black opacity-70">2017, All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="./js/app.js"></script>
+  </body>
 </html>
